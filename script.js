@@ -1,5 +1,10 @@
 const startButton = document.getElementById("startButton");
 const board = document.getElementById("innerBox");
+const ground = document.getElementById("ground");
+const winnerModel = document.getElementById("winner");
+const message = document.getElementById("message");
+
+
 
 let isStartflag = false;
 let currentPlayer = "X";
@@ -64,15 +69,18 @@ board.addEventListener("click",function(event){
     
     const winner = checkWinner();
 
+
+
  
 
     if(winner){
-        if(winner === "tie"){
-            console.log("It's a Tie")
+        if(winner.trim() === "Tie"){
+           winnerModel.textContent="It's a Tie";
 
         }else{
-            console.log(`player ${winner} wins!`);
+            message.textContent=`player ${winner} wins!`;
         }
+        winnerModel.classList.remove("hidden");
         isStartflag = false;
         return;
     }
