@@ -3,6 +3,7 @@ const board = document.getElementById("innerBox");
 const ground = document.getElementById("ground");
 const winnerModel = document.getElementById("winner");
 const message = document.getElementById("message");
+const resetButton = document.getElementById("closeModel");
 
 
 
@@ -86,3 +87,13 @@ board.addEventListener("click",function(event){
     }
     currentPlayer = currentPlayer === "X"?"O":"X";
 });
+resetButton.addEventListener("click", function(){
+ console.log("reset button clicked");
+ winnerModel.classList.add("hidden");
+ const boxes = Array.from(document.querySelectorAll(".mainBox"));
+ boxes.forEach(box => box.textContent = "");
+ currentPlayer = "X";
+ isStartflag = false;
+
+});
+
